@@ -23,6 +23,9 @@ public class RegularExpressionsMain {
 				case 1:
 					answer = re.containsTrue();
 					break;
+				case 2:
+					answer = re.containsOKVariants();
+					break;
 				default:
 					System.out.println("Bad option. Program finishes.");
 					break;

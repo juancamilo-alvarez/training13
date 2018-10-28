@@ -52,7 +52,7 @@ public class RegularExpressionsTest {
 		boolean test1_6 = re.containsTrue();
 		assertTrue("Test 1_6: Empty should not match",!test1_6);
 
-		re.setBase("");
+		re.setBase(null);
 		boolean test1_7 = re.containsTrue();
 		assertTrue("Test 1_7: Null should not match",!test1_7);
 
@@ -78,6 +78,18 @@ public class RegularExpressionsTest {
 		re.setBase("Ok");
 		boolean test2_4 = re.containsOKVariants();
 		assertTrue("Test 2_4: OK should match",test2_4);
+
+		re.setBase(" Ok");
+		boolean test2_5 = re.containsOKVariants();
+		assertTrue("Test 2_5: Any variation with other characters should not match",!test2_5);
+		
+		re.setBase("");
+		boolean test2_6 = re.containsOKVariants();
+		assertTrue("Test 2_6: Empty should not match",!test2_6);
+
+		re.setBase(null);
+		boolean test2_7 = re.containsOKVariants();
+		assertTrue("Test 2_7: Null should not match",!test2_7);
 	}
 }
 

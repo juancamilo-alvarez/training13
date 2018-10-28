@@ -28,25 +28,32 @@ public class RegularExpressions {
 	}
 
 	public boolean containsTrue() {
-		String regex1 = "true";
-		String regex2 = "True";
-
-//		Another possible solution with String methods:
-//		return base.matches(regex1) || base.matches(regex2);
-
-		Pattern pattern1 = Pattern.compile(regex1);
-		Matcher matcher1 = pattern1.matcher(base);
-
-		Pattern pattern2 = Pattern.compile(regex2);
-		Matcher matcher2 = pattern2.matcher(base);
-
-		boolean result = matcher1.matches() || matcher2.matches();
-		
-		return result;
+		if (base != null) {
+			String regex1 = "true";
+			String regex2 = "True";
+	
+	//		Another possible solution with String methods:
+	//		return base.matches(regex1) || base.matches(regex2);
+	
+			Pattern pattern1 = Pattern.compile(regex1);
+			Matcher matcher1 = pattern1.matcher(base);
+	
+			Pattern pattern2 = Pattern.compile(regex2);
+			Matcher matcher2 = pattern2.matcher(base);
+	
+			boolean result = matcher1.matches() || matcher2.matches();
+			
+			return result;
+		}
+		else
+			return false;
 	}
 
 	public boolean containsOKVariants() {
-		return base.matches("(?i)ok");
+		if (base != null)
+			return base.matches("(?i)ok");
+		else
+			return false;
 	}
 
 	public void setBase(String base) {
