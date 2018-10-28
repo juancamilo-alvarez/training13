@@ -35,22 +35,26 @@ public class RegularExpressionsTest {
 		re.setBase("True");
 		boolean test1_2 = re.containsTrue();
 		assertTrue("Test 1_2: Base string should match for True",test1_2);
+
+		re.setBase("tRue");
+		boolean test1_3 = re.containsTrue();
+		assertTrue("Test 1_3: Any variation of capital letters of true other than True should not match",!test1_3);
 		
 		re.setBase(" true");
-		boolean test1_3 = re.containsTrue();
-		assertTrue("Test 1_3: Any string containing true should not match",!test1_3);
+		boolean test1_4 = re.containsTrue();
+		assertTrue("Test 1_4: Any true with additional characters should not match",!test1_4);
 
 		re.setBase(" True");
-		boolean test1_4 = re.containsTrue();
-		assertTrue("Test 1_4: Any string containing True should not match",!test1_4);
+		boolean test1_5 = re.containsTrue();
+		assertTrue("Test 1_5: Any True with additional characters should not match",!test1_5);
 		
 		re.setBase("");
-		boolean test1_5 = re.containsTrue();
-		assertTrue("Test 1_5: Empty should not match",!test1_5);
+		boolean test1_6 = re.containsTrue();
+		assertTrue("Test 1_6: Empty should not match",!test1_6);
 
 		re.setBase("");
-		boolean test1_6 = re.containsTrue();
-		assertTrue("Test 1_6: Null should not match",!test1_6);
+		boolean test1_7 = re.containsTrue();
+		assertTrue("Test 1_7: Null should not match",!test1_7);
 
 	}
 
