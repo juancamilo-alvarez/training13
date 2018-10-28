@@ -45,6 +45,10 @@ public class RegularExpressions {
 		return result;
 	}
 
+	public boolean containsOKVariants() {
+		return base.matches("(?i)ok");
+	}
+
 	public void setBase(String base) {
 		this.base = base;
 	}

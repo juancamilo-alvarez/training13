@@ -10,7 +10,6 @@
  * 6. Method unionNumbersZeroTwoAndSevenNine(). String has a single number between 0 and 2 or a number between 7 and 9. Ex: “8".
  * 7. Method containNumbersLessThan300(). String contains a number less than 300. Ex: "Last year I worked 299”.
  * 8. The method autocorrect must replace all instances (not case sensitive) of: “you”, “u” or “youuuu” (with any number of u characters tacked onto the end) to "my nightmare” (always lower case).
- *  
  */
 
 import org.junit.Test;
@@ -18,38 +17,64 @@ import static org.junit.Assert.assertTrue;
 
 /*
  * This class performs tests for the RegularExpressions.java program
+ * To compile: javac -cp .:junit-4.10.jar RegularExpressionsTest.java
+ * To run tests: java .cp .:junit-4.10.jar org.junit.runner.JUnitCore RegularExpressions
  */
 public class RegularExpressionsTest {
 
+	/*
+	 * Test #1
+	 */
 	@Test
 	public void containsTrueTest() {
 		RegularExpressions re = new RegularExpressions("true");
 
-		boolean test1 = re.containsTrue();
-		assertTrue("Test 1: Base string should match for true",test1);
+		boolean test1_1 = re.containsTrue();
+		assertTrue("Test 1_1: Base string should match for true",test1_1);
 
 		re.setBase("True");
-		boolean test2 = re.containsTrue();
-		assertTrue("Test 2: Base string should match for True",test2);
+		boolean test1_2 = re.containsTrue();
+		assertTrue("Test 1_2: Base string should match for True",test1_2);
 		
 		re.setBase(" true");
-		boolean test3 = re.containsTrue();
-		assertTrue("Test 3: Any string containing true should not match",!test3);
+		boolean test1_3 = re.containsTrue();
+		assertTrue("Test 1_3: Any string containing true should not match",!test1_3);
 
 		re.setBase(" True");
-		boolean test4 = re.containsTrue();
-		assertTrue("Test 4: Any string containing True should not match",!test4);
+		boolean test1_4 = re.containsTrue();
+		assertTrue("Test 1_4: Any string containing True should not match",!test1_4);
 		
 		re.setBase("");
-		boolean test5 = re.containsTrue();
-		assertTrue("Test 5: Empty should not match",!test5);
+		boolean test1_5 = re.containsTrue();
+		assertTrue("Test 1_5: Empty should not match",!test1_5);
 
 		re.setBase("");
-		boolean test6 = re.containsTrue();
-		assertTrue("Test 6: Null should not match",!test6);
+		boolean test1_6 = re.containsTrue();
+		assertTrue("Test 1_6: Null should not match",!test1_6);
 
 	}
 
+	/*
+	 * Test #2
+	 */
+	@Test
+	public void containsOKVariantsTest() {
+		RegularExpressions re = new RegularExpressions("ok");
+		boolean test2_1 = re.containsOKVariants();
+		assertTrue("Test 2_1: ok should match",test2_1);
+
+		re.setBase("oK");
+		boolean test2_2 = re.containsOKVariants();
+		assertTrue("Test 2_2: oK should match",test2_2);
+
+		re.setBase("Ok");
+		boolean test2_3 = re.containsOKVariants();
+		assertTrue("Test 2_3: Ok should match",test2_3);
+
+		re.setBase("Ok");
+		boolean test2_4 = re.containsOKVariants();
+		assertTrue("Test 2_4: OK should match",test2_4);
+	}
 }
 
 
